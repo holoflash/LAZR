@@ -3,9 +3,11 @@ const staticAssets = [
     './',
     './index.html',
     './src/styles.css',
-    './src/script.js',
-    './src/images/laser.svg',
-    './src/images/bg.png',
+    './src/laserPointer.js',
+    './src/favicon.svg',
+    './src/icon-192.png',
+    './src/icon-512.png',
+    './src/maskable_icon_x192.png',
 ];
 
 self.addEventListener('install', async e => {

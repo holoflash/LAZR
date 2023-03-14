@@ -19,16 +19,17 @@
 </head>
 
 <body>
-    <script src="src/laserPointer.js"></script>
+    <div class="container">
+        <h1>LAZR</h1>
+        <script src="src/laserPointer.js"></script>
+    </div>
     <script>
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
                 navigator.serviceWorker.register('sw.js')
                     .then(registration => {
-                        console.log('SW registered: ', registration);
                     })
                     .catch(registrationError => {
-                        console.log('SW registration failed: ', registrationError);
                     });
             });
         }

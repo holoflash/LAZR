@@ -1,6 +1,5 @@
 function laserPointer() {
-    const container = document.createElement("div");
-    container.classList.add("container");
+    const container = document.querySelector('.container')
 
     const laser = document.createElement("div");
     laser.classList.add("laser");
@@ -38,7 +37,6 @@ function laserPointer() {
         targetLaser.style.setProperty("--xB", `${Math.floor(Math.random() * (window.innerWidth - offsetWidth + 1))}px`);
         targetLaser.style.setProperty("--yB", `${Math.floor(Math.random() * (window.innerHeight - offsetHeight + 1))}px`);
     }
-    document.body.append(container);
 }
 
 laserPointer();
