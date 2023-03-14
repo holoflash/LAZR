@@ -26,28 +26,11 @@
     <script>
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
-                navigator.serviceWorker.register('./sw.js')
-                    .then(registration => { })
-                    .catch(registrationError => { });
-
-                let deferredPrompt;
-                window.addEventListener('beforeinstallprompt', (event) => {
-                    event.preventDefault();
-                    deferredPrompt = event;
-
-                    const btnAdd = document.createElement('button');
-
-                    btnAdd.textContent = "Install lazr?";
-                    document.body.appendChild(btnAdd);
-                    btnAdd.addEventListener('click', (e) => {
-                        deferredPrompt.prompt();
-                        deferredPrompt.userChoice
-                            .then((choiceResult) => {
-                                deferredPrompt = null;
-                            });
-                        document.body.removeChild(btnAdd);
+                navigator.serviceWorker.register('sw.js')
+                    .then(registration => {
+                    })
+                    .catch(registrationError => {
                     });
-                });
             });
         }
     </script>
