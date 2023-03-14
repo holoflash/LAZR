@@ -5,13 +5,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LAZR</title>
-    <meta name="description" content="LAZR: a browser game for cats.">
+    <title>lazr</title>
+    <meta name="description" content="lazr: a browser game for cats.">
     <meta property="og:title" content="Laser Pointer">
-    <meta property="og:description" content="LAZR: a browser game for cats.">
+    <meta property="og:description" content="lazr: a browser game for cats.">
     <meta property="og:image" content="src/favicon.svg">
     <meta name="twitter:title" content="Laser Pointer">
-    <meta name="twitter:description" content="LAZR: a browser game for cats.">
+    <meta name="twitter:description" content="lazr: a browser game for cats.">
     <meta name="twitter:image" content="src/favicon.svg">
     <link rel="icon" type="image/svg" href="src/favicon.svg">
     <link rel="stylesheet" href="src/styles.css">
@@ -20,17 +20,34 @@
 
 <body>
     <div class="container">
-        <h1>LAZR</h1>
+        <h1>lazr</h1>
         <script src="src/laserPointer.js"></script>
     </div>
     <script>
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
-                navigator.serviceWorker.register('sw.js')
-                    .then(registration => {
-                    })
-                    .catch(registrationError => {
+                navigator.serviceWorker.register('./sw.js')
+                    .then(registration => { })
+                    .catch(registrationError => { });
+
+                let deferredPrompt;
+                window.addEventListener('beforeinstallprompt', (event) => {
+                    event.preventDefault();
+                    deferredPrompt = event;
+
+                    const btnAdd = document.createElement('button');
+
+                    btnAdd.textContent = "Install lazr?";
+                    document.body.appendChild(btnAdd);
+                    btnAdd.addEventListener('click', (e) => {
+                        deferredPrompt.prompt();
+                        deferredPrompt.userChoice
+                            .then((choiceResult) => {
+                                deferredPrompt = null;
+                            });
+                        document.body.removeChild(btnAdd);
                     });
+                });
             });
         }
     </script>

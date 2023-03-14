@@ -1,4 +1,4 @@
-## LAZR
+## lazr
 
 <img src="src/favicon.svg" height=10px/>
 A simple laser pointer game for cats.
