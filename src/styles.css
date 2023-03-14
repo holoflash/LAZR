@@ -1,0 +1,71 @@
+body {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    background-color: #000000;
+    background-size: cover;
+    background-position: center;
+}
+
+.laser {
+    width: 5px;
+    height: 5px;
+    background-color: rgb(253, 34, 34);
+    border-radius: 50%;
+    --xA: calc(50vw - 5px);
+    --yA: calc(50vh - 5px);
+    --xB: calc(50vw - 5px);
+    --yB: calc(50vh - 5px);
+    animation: move-laser 2s cubic-bezier(0.5, 0, 0.2, 1) 1;
+}
+
+.laser::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 17px;
+    height: 17px;
+    box-shadow: 0 0 40px 10px rgba(255, 0, 0, 0.557);
+    background-color: #ff0000;
+    border-radius: 50%;
+    animation: idle 8s ease infinite;
+}
+
+@keyframes idle {
+    0% {
+        transform: translate(-50%, -50%);
+    }
+    25% {
+        transform: translate(-50%, -50%) translateX(-5px);
+    }
+    50% {
+        transform: translate(-50%, -50%) translateY(-5px);
+    }
+    75% {
+        transform: translate(-50%, -50%) translateX(5px);
+    }
+    100% {
+        transform: translate(-50%, -50%);
+    }
+}
+
+@keyframes move-laser {
+    0% {
+        transform: translate3d(var(--xA), var(--yA), 0);
+    }
+    10%,
+    90% {
+        transform: translate3d(var(--xB), var(--yB), 0) scale(1.2);
+    }
+    100% {
+        transform: translate3d(var(--xB), var(--yB), 0);
+    }
+}
