@@ -1,6 +1,6 @@
 {
-    "name": "LAZR",
-    "short_name": "LAZR",
+    "name": "lazr",
+    "short_name": "lazr",
     "description": "A browser game for cats.",
     "icons": [
         {

@@ -14,7 +14,7 @@ function laserPointer() {
 
     function laserCaught() {
         timesCaught++;
-        if (timesCaught === 12) {
+        if (timesCaught === 16) {
             animationSpeed = "2s";
             timesCaught = 0;
         }
@@ -34,8 +34,8 @@ function laserPointer() {
         const { offsetWidth, offsetHeight } = targetLaser;
         targetLaser.style.setProperty("--xA", targetLaser.style.getPropertyValue("--xB"));
         targetLaser.style.setProperty("--yA", targetLaser.style.getPropertyValue("--yB"));
-        targetLaser.style.setProperty("--xB", `${Math.floor(Math.random() * (window.innerWidth - offsetWidth + 1))}px`);
-        targetLaser.style.setProperty("--yB", `${Math.floor(Math.random() * (window.innerHeight - offsetHeight + 1))}px`);
+        targetLaser.style.setProperty("--xB", `${Math.floor(Math.random() * (window.innerWidth - offsetWidth + 1)) + offsetWidth}px`);
+        targetLaser.style.setProperty("--yB", `${Math.floor(Math.random() * (window.innerHeight - offsetHeight * 2 - 1)) + offsetHeight}px`);
     }
 }
 

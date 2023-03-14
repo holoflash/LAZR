@@ -1,5 +1,6 @@
 body {
     margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
 
@@ -17,10 +18,10 @@ body {
     height: 5px;
     background-color: rgb(253, 34, 34);
     border-radius: 50%;
-    --xA: calc(50vw - 5px);
-    --yA: calc(50vh - 5px);
-    --xB: calc(50vw - 5px);
-    --yB: calc(50vh - 5px);
+    --xA: calc(50vw);
+    --yA: calc(50vh);
+    --xB: calc(50vw);
+    --yB: calc(50vh);
     animation: move-laser 2s cubic-bezier(0.5, 0, 0.2, 1) 1;
 }
 
